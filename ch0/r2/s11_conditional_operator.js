@@ -1,0 +1,5 @@
+// 조건부 연산자(conditional operator)
+let a = true;
+let b = false;
+console.log(a ? 1 : 2);
+console.log(b ? 3 : 2);

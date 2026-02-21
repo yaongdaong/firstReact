@@ -10,14 +10,18 @@ function TemperatureInput(props) {
     // 2. 이벤트 핸들러: 입력창(input)에 변화가 생길 때마다 호출되는 함수
     const handleChange = (event) => {
         // 사용자가 입력한 값(event.target.value)을 'temperature' 상태에 업데이트
-        setTemperature(event.target.value);
+        // setTemperature(event.target.value);
+        // shared state적용
+        props.onTemperatureChange(event.target.value);
     };
     return (
         <fieldset>
             {/* 3. props를 통해 전달받은 scale('c' 또는 'f')을 이용해 제목을 표시 */}
             <legend>온도를 입력해 주세요(단위: {scaleNames[props.scale]}):</legend>
             {/* 4. Controlled Component: input의 value를 React의 상태(state)와 연결 */}
-            <input value={temperature} onChange={handleChange} />
+            {/* <input value={temperature} onChange={handleChange} /> */}
+            {/* 온도값을state말고 props에서가져옴 */}
+            <input value={props.temperature} onChange={handleChange} />
         </fieldset>
     );
 }
@@ -34,14 +38,18 @@ function TemperatureInput(props) {
     // 이벤트핸들러:입력시호출
     const handleChange = (event) => {
         // 사용자입력값으로업데이트
-        setTemperature(event.target.value);
+        // setTemperature(event.target.value);
+        // 변경된온도값이상위컴포넌트로전달됨
+        props.onTempertureChange(event.target.value);
     };
     return (
         <fieldset>
             {/* 전달받은scale로제목표시 */}
             <legend>온도를 입력해주세요(단위:{scaleNames1[props.scale]}):</legend>
             {/* 제어컴포넌트:input value를 react의 state와 연결 */}
-            <input value={temperature} onChange={handleChange} />
+            {/* <input value={temperature} onChange={handleChange} /> */}
+            {/* 온도값을컴포넌트의state에서가져오는게아닌props를통해가져옴 */}
+            <input value={props.temperature} onChange={handleChange} />
         </fieldset>
     );
 }
@@ -58,14 +66,18 @@ function TemperatureInput(props) {
     // 이벤트핸들러:입력시마다호출
     const handleChange = (event) => {
         // 사용자입력으로상태업데이트
-        setTemperature(event.target.value);
+        // setTemperature(event.target.value);
+        // 변경된온도값이상위컴포넌트로전달됨
+        props.onTemperatureChange(event.target.value);
     };
     return (
         <fieldset>
             {/* props를통해전달받은scale로제목표시 */}
             <legend>온도를 입력해 주세요(단위:{scaleNames2[props.scale]}):</legend>
             {/* 제어컴포넌트:input value를 react state와 연결 */}
-            <input value={temperature} onChange={handleChange} />
+            {/* <input value={temperature} onChange={handleChange} /> */}
+            {/* 온도값을컴포넌트의state에서가져오는게아닌props를통해가져옴 */}
+            <input value={props.temperature} onChange={handleChange} />
         </fieldset>
     );
 }
@@ -82,14 +94,18 @@ function TemperatureInput(props) {
     // 이벤트핸들러:입력시마다호출
     const handleChange = (event) => {
         // 사용자입력값으로상태업데이트
-        setTemperature(event.target.value);
+        // setTemperature(event.target.value);
+        // 변경된온도값이상위컴포넌트로전달됨
+        props.onTemperatureChange(event.target.value);
     };
     return (
         <fieldset>
             {/* props통해전달받은scale이용해제목표시 */}
             <legend>온도를 입력해 주세요(단위:{scaleNames3[props.scale]}):</legend>
             {/* 제어컴포넌트:input value를 react state와연결 */}
-            <input value={temperature} onChange={handleChange} />
+            {/* <input value={temperature} onChange={handleChange} /> */}
+            {/* 온도값을컴포넌트의state말고props를통해가져옴 */}
+            <input value={props.temperature} onChange={handleChange} />
         </fieldset>
     );
 }
@@ -106,14 +122,18 @@ function TemperatureInput(props) {
     // 이벤트핸들러:입력시호출
     const handleChange = (event) => {
         // 사용자입력값을 상태업데이트
-        setTemperature(event.target.value);
+        // setTemperature(event.target.value);
+        // 변경된온도값이상위컴포넌트로전달됨
+        props.onTemperatureChange(event.target.value);
     };
     return (
         <fieldset>
             {/* props를통해전달받은scale이용해제목표시 */}
             <legend>온도를 입력해주세요(단위:{scaleNames4[props.scale]}):</legend>
-            {/* 재어컴포넌트:input value를 react state와 연결 */}
-            <input value={temperature} onChange={handleChange} />
+            {/* 제어컴포넌트:input value를 react state와 연결 */}
+            {/* <input value={temperature} onChange={handleChange} /> */}
+            {/* 온도값을컴포넌트의state말고props를통해가져옴 */}
+            <input value={props.temperature} onChange={handleChange} />
         </fieldset>
     );
 }
@@ -130,14 +150,18 @@ function TemperatureInput(props) {
     // 이벤트핸들러:입력시마다호출되는함수
     const handleChange = (event) => {
         // 사용자입력값을상태에업데이트
-        setTemperature(event.target.value);
+        // setTemperature(event.target.value);
+        // 변경된 온도값이 상위컴포넌트로 전달됨
+        onTemperatureChange(event.target.value);
     };
     return (
         <fieldset>
             {/* props통해전달받은scale이용해제목표시 */}
             <legend>온도를 입력해주세요.(단위:{scaleNames5[props.name]}):</legend>
             {/* 제어컴포넌트input value를 react의 state와연결 */}
-            <input value={temperature} onChange={handleChange} />
+            {/* <input value={temperature} onChange={handleChange} /> */}
+            {/* 온도값을 컴포넌트의state말고 props를 통해 가져옴 */}
+            <input value={props.temperature} onChange={handleChange} />
         </fieldset>
     );
 }
